@@ -1,4 +1,5 @@
 require 'byebug'
+require 'webmock/rspec'
 require_relative '../lib/shufmo_notifier'
 
 RSpec.configure do |config|

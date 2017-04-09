@@ -1,3 +1,4 @@
+require 'json'
 require 'net/http'
 require 'uri'
 
@@ -10,10 +11,11 @@ module ShufmoNotifier
         text: options[:text],
         attachments: options[:attachments]
       }
+      payload = payload.delete_if { |k, v| v.nil? }
 
       Net::HTTP.post_form(uri, payload: payload.to_json)
-    rescue
-      raise SlackNotifyError
+    rescue => e
+      raise Exception::SlackNotifyError
     end
   end
 end
