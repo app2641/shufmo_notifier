@@ -6,7 +6,7 @@ gem 'whenever', require: false
 
 group :development, :test do
   gem 'byebug', require: false
-  gem 'capistrano', require: false
+  gem 'capistrano'
   gem 'rake', require: false
   gem 'rspec', require: false
   gem 'webmock'
