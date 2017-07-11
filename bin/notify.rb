@@ -9,6 +9,7 @@ doc = parser.parse
 
 searcher = ShufmoNotifier::Searcher.new(doc)
 items = searcher.search
+return if items.empty?
 
 message = ShufmoNotifier::Formatter.format(items)
 ShufmoNotifier::Slack.post(ENV['SLACK_API_URL'], text: message)
